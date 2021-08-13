@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug 13 21:45:46 2021
+Created on Fri Aug 13 22:11:59 2021
 
 @author: lxs_9
 """
@@ -21,15 +21,24 @@ for i in range(n):
     
     cmd = list(sys.stdin.readline().split())
     
+    if cmd[0]=='push_front':
+        deq.appendleft(cmd[1])
         
-    if cmd[0]=='push':
+    elif cmd[0]=='push_back':
         deq.append(cmd[1])
         
-    elif cmd[0]=='pop':
+    elif cmd[0]=='pop_front':
         if empty()==1:
             print("-1")
         else:
             tmp = deq.popleft()
+            print(tmp)
+        
+    elif cmd[0]=='pop_back':
+        if empty()==1:
+            print("-1")
+        else:
+            tmp = deq.pop()
             print(tmp)
         
     elif cmd[0]=='size':
