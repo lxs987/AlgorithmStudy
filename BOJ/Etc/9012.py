@@ -4,16 +4,23 @@ Created on Wed Aug 11 21:53:17 2021
 
 @author: lxs_9
 """
-import sys
-n = int(sys.stdin.readline())
 
+n = int(input())
 for i in range(n):
-    lst = []
-    lst.append(sys.stdin.readline().rstrip().split())
+    string = input()
+    lst = list(string)
+    sum=0
     
-    if lst[0]==')':
+    for j in lst:
+        if j == '(':
+            sum+=1
+        elif j ==')':
+            sum-=1
+        if sum<0:
             print('NO')
-            return 0
-        
-    for i in range(len(lst)):
-        
+            break
+    if sum > 0:
+        print('NO')
+    elif sum == 0:
+        print('YES')
+
